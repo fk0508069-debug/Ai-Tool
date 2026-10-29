@@ -1,0 +1,13 @@
+"use client";
+
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import type { ComponentProps } from "react";
+
+export function ThemeProvider({ children, ...props }: ComponentProps<typeof NextThemesProvider>) {
+  // Add suppressHydrationWarning to avoid React 19 script warnings
+  return (
+    <NextThemesProvider {...props} enableSystem={false} disableTransitionOnChange>
+      {children}
+    </NextThemesProvider>
+  );
+}
